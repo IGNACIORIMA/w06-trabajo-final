@@ -44,7 +44,7 @@ const login = catchError(async(req, res) => {
                 delete user.dataValues.phone
             }
             
-    console.log('controles de login', user)
+    /* console.log('controles de login', user) */
 
     const token = jwt.sign(
         {user},

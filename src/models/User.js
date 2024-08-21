@@ -33,4 +33,10 @@ User.beforeCreate(async(user)=> {
     user.password = hashedpassword 
 })
 
+/* const res = await request(App)
+    .get(BASE_URL)
+    .set('authorization',`Bearer ${token}`)
+    console.log('res del test',res)
+    expect(res.statusCode).toBe(200) */
+
 module.exports = User;
