@@ -82,7 +82,7 @@ test('GET -> BASE_URL, should return statuscode 200, and res.body.length === 2',
 })
 
 //3. UPDATE
-test('UPDATE -> BASE_URL/:id, should return ', async () => {
+test('UPDATE -> BASE_URL/:id, should return should return statusCode 200, and res.body.firstName === user2Upd.firstName', async () => {
     const user2Upd = {
         firstName: 'Luvil',
         email: 'luvil@gmail.com',
@@ -94,10 +94,16 @@ test('UPDATE -> BASE_URL/:id, should return ', async () => {
         .put(`${BASE_URL}/${user2Id}`)
         .send(user2Upd)
         .set('authorization', `Bearer ${TOKEN2}`)
-    console.log(res)
+    
     expect(res.statusCode).toBe(200)
     expect(res.body.firstName).toBe(user2Upd.firstName)
 })
 
 //4. DELETE
-test('UPDATE -> BASE_URL/:id, shoul return')
+test('DELETE -> BASE_URL/:id, should return status code 204', async () => {
+    const res = await request(app)
+        .delete(`${BASE_URL}/${user2Id}`)
+        .set('authorization', `Bearer ${TOKEN2}`)
+    
+    expect(res.statusCode).toBe(204)
+})
