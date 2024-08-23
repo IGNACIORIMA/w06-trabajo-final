@@ -21,7 +21,15 @@ const remove = catchError(async(req, res) => {
 });
 
 const update = catchError(async(req, res) => {
+    
     const { id } = req.params;
+
+    for (let values in req.body) {
+        delete req.body.email
+        delete req.body.password
+        delete req.body.phone
+    }
+
     const result = await User.update(
         req.body,
         { where: {id}, returning: true }
