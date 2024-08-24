@@ -5,7 +5,7 @@ const routerProduct = require('./product.router');
 const router = express.Router();
 
 router.use('/users', routerUser)
-router.use("/categories", routerCategory)
+router.use('/categories', routerCategory)
 router.use('/products', routerProduct)
 
 module.exports = router;

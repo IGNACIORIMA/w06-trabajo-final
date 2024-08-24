@@ -8,10 +8,12 @@ const BASE_URL = '/api/v1/categories'
 const BASE_URL_LOGIN = '/api/v1/users/login';
 
 beforeAll(async () => {
+  
   const user = {
     email: "juan@gmail.com",
     password: "juan1234"
   };
+
   const res = await request(app)
     .post(BASE_URL_LOGIN)
     .send(user)
@@ -23,6 +25,7 @@ const category = {
   name: "Jeans"
 }
 
+// 1. POST
 test("POST -> BASE_URL, should return statusCode 201, res.body.name === category.name", async () => {
   const res = await request(app)
     .post(BASE_URL)
@@ -34,8 +37,9 @@ test("POST -> BASE_URL, should return statusCode 201, res.body.name === category
   expect(res.statusCode).toBe(201)
   expect(res.body).toBeDefined()
   expect(res.body.name).toBe(category.name)
-})
+});
 
+// 2. GET all
 test("GET --> BASE_URL, should return statusCode 200, and res.body.length === 1", async () => {
   const res = await request(app)
     .get(BASE_URL)
@@ -44,6 +48,7 @@ test("GET --> BASE_URL, should return statusCode 200, and res.body.length === 1"
   expect(res.body).toHaveLength(1)
 }); 
 
+// 3. DELETE
 test("DELETE -> BASE_URL/categoryId, should return statusCode 204, and res.body.name === category.name", async () => {
   const res = await request(app)
     .delete(`${BASE_URL}/${categoryId}`)

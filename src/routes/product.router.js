@@ -1,4 +1,3 @@
-
 const { getAll, create, getOne, remove, update } = require('../controllers/product.controllers');
 const express = require('express');
 const { verifyJwt } = require('../utils/verifyJWT');
