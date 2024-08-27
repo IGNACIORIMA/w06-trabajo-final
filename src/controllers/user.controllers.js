@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const getAll = catchError(async(req, res) => {
-    const results = await User.findAll();
+    const userId = req.user.id
+    const results = await User.findAll({where: {id: userId}});
     return res.json(results);
 });
 

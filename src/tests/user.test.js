@@ -71,14 +71,14 @@ test('POST -> BASE_URL/login, should return statusCode 401', async() => {
 
 
 //2. GET
-test('GET -> BASE_URL, should return statuscode 200, and res.body.length === 2', async () => {
+test('GET -> BASE_URL, should return statuscode 200, and res.body.length === 1', async () => {
     const res = await request(app)
         .get(BASE_URL)
         .set('Authorization', `Bearer ${TOKEN2}`)
     
     expect(res.statusCode).toBe(200)
     expect(res.body).toBeDefined()
-    expect(res.body).toHaveLength(2)
+    expect(res.body).toHaveLength(1)
 })
 
 //3. UPDATE
