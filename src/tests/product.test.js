@@ -14,6 +14,7 @@ const BASE_URL = '/api/v1/products'
 
 let category
 let productId
+let TOKEN
 
 beforeAll( async() => {
     const hits = {
