@@ -21,7 +21,6 @@ const getAll = catchError(async(req, res) => {
             }
         ]
     });
-    console.log(results)
     if (results[0]) {
         for (let i in results[0].dataValues) {
             delete results[0].dataValues.createdAt
